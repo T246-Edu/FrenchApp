@@ -1,18 +1,15 @@
-import { StyleSheet, Text, View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
-import MainHome from "./app/grades/Main";
-import Main from "./app/screens/Main";
+import { StyleSheet } from "react-native";
+//GradeHome
+import Colors from "../config/Colors";
 
-export default function App() {
+export default function HomePageGrades() {
   const [grade, setGrade] = useState(10);
-  const [data, setData] = useState();
   const getData = async () => {
     try {
-      const value = await AsyncStorage.getItem("@user");
       const grade = await AsyncStorage.getItem("@grade");
-      if (value != null && grade != null) {
-        setData(value);
+      if (grade != null) {
         setGrade(grade);
       }
     } catch (e) {
@@ -22,17 +19,12 @@ export default function App() {
   useEffect(() => {
     getData();
   }, []);
-  if (!data) {
-    return <Main />;
-  } else {
-    return <MainHome />;
-  }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
+  mainContainer: {
+    flex: 0.95,
+    backgroundColor: Colors.primary,
     alignItems: "center",
     justifyContent: "center",
   },
