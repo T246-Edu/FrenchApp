@@ -20,13 +20,9 @@ export default function App() {
     }
   };
   useEffect(() => {
-    getData();
-  }, []);
-  if (!data) {
-    return <Main />;
-  } else {
-    return <MainHome />;
-  }
+    setTimeout(() => getData(), 1000);
+  }, [data]);
+  return !data ? <Main /> : <MainHome />;
 }
 
 const styles = StyleSheet.create({

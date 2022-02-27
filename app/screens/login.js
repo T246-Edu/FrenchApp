@@ -63,16 +63,16 @@ function Login() {
         style={{ marginTop: 130 }}
         onPress={() => login(mail, password)}
       />
-      <CustomText
-        text={messege}
-        otherStyle={{ marginTop: 10, marginBottom: 10 }}
-        style="medium"
-      />
       <AppBtn
         text={"sign up?"}
         style={{ backgroundColor: Colors.primary }}
         onPress={() => navigation.navigate("Sign Up")}
       ></AppBtn>
+      <CustomText
+        text={messege}
+        otherStyle={{ marginTop: 10, marginBottom: 10 }}
+        style="medium"
+      />
     </AppScreen>
   );
 }
