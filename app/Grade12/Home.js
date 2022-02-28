@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { SafeAreaView, StyleSheet, View } from "react-native";
 import AppBtn from "../components/AppButton";
@@ -7,6 +8,7 @@ import Colors from "../config/Colors";
 
 export default function GradeHome() {
   const [grade, setGrade] = useState(10);
+  const navigation = useNavigation();
   const getData = async () => {
     try {
       const grade = await AsyncStorage.getItem("@grade");
@@ -23,16 +25,20 @@ export default function GradeHome() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: Colors.primary }}>
       <View style={styles.mainContainer}>
-        <CustomText text={`Grade, ${grade}`} style="bold medium" />
+        <CustomText text={`${grade} e année`} style="bold medium" />
         <AppBtn
-          text={"Materials"}
+          text={"matériaux"}
           style={{ marginBottom: 10, marginTop: 10 }}
+          onPress={() => navigation.navigate("VideosUnits")}
         />
-        <AppBtn text={"explantion"} />
+        <AppBtn
+          text={"explication"}
+          onPress={() => navigation.navigate("Units")}
+        />
       </View>
       <View style={{ marginLeft: 10 }}>
         <CustomText
-          text={"Developed By: \nTawfiq Bhyry\nYousef Fathy"}
+          text={"développé par : \nTawfiq Bhyry\nYousef Fathy"}
           color={Colors.secondary}
         />
       </View>

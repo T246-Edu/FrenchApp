@@ -1,7 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StyleSheet } from "react-native";
+import Vivresain from "../Grade12/cinq";
 import GradeHome from "../Grade12/Home";
+import Units from "../Grade12/units";
+import notebook from "../Grade12/notebook";
+import six from "../Grade12/six";
 
 export default function Gt() {
   const Stack = createNativeStackNavigator();
@@ -15,32 +19,28 @@ export default function Gt() {
         />
         <Stack.Screen
           name="Units"
-          component={GradeHome}
+          component={Units}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="unit1"
-          component={GradeHome}
+          component={Vivresain}
+          options={{
+            animationEnabled: false,
+          }}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="unit2"
-          component={GradeHome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="unit3"
-          component={GradeHome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="unit4"
-          component={GradeHome}
+          component={six}
+          options={{
+            animationEnabled: false,
+          }}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="VideosUnits"
-          component={GradeHome}
+          component={notebook}
           options={{ headerShown: false }}
         />
         <Stack.Screen
@@ -50,16 +50,6 @@ export default function Gt() {
         />
         <Stack.Screen
           name="unit2V"
-          component={GradeHome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="unit3V"
-          component={GradeHome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="unit4V"
           component={GradeHome}
           options={{ headerShown: false }}
         />

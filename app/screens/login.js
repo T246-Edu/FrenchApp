@@ -45,7 +45,7 @@ function Login() {
     }
   }
   return (
-    <AppScreen style={{ alignItems: "center" }}>
+    <AppScreen style={{ alignItems: "center", justifyContent: "center" }}>
       <CustomText
         text={"Welcome"}
         style="bold head"
@@ -60,7 +60,7 @@ function Login() {
       <TextField data="password" onChangeText={(text) => setPassword(text)} />
       <AppBtn
         text={"Login"}
-        style={{ marginTop: 130 }}
+        style={{ marginTop: 130, marginBottom: 20 }}
         onPress={() => login(mail, password)}
       />
       <AppBtn

@@ -55,7 +55,9 @@ function Register() {
       });
   }
   return (
-    <AppScreen style={{ alignItems: "center" }}>
+    <AppScreen
+      style={{ alignItems: "center", justifyContent: "center", flex: 1 }}
+    >
       <CustomText
         text="Sign Up"
         style="bold head"
@@ -93,7 +95,12 @@ function Register() {
           errors,
           touched,
         }) => (
-          <View style={{ width: "100%", alignItems: "center" }}>
+          <View
+            style={{
+              width: "100%",
+              alignItems: "center",
+            }}
+          >
             <TextField
               data="mail"
               onChangeText={handleChange("email")}
