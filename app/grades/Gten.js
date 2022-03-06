@@ -1,11 +1,12 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StyleSheet } from "react-native";
-import Vivresain from "../Grade12/cinq";
-import GradeHome from "../Grade12/Home";
-import Units from "../Grade12/units";
-import notebook from "../Grade12/notebook";
-import six from "../Grade12/six";
+import GradeHome from "../Grade10/Home";
+import Units from "../Grade10/units";
+import Lycée from "../Grade10/duex";
+import Vivresain from "../Grade10/une";
+import Reader from "../Grade10/notebook";
+import SignOut from "../SignOut/signOut";
 
 export default function Gten() {
   const Stack = createNativeStackNavigator();
@@ -24,33 +25,28 @@ export default function Gten() {
         />
         <Stack.Screen
           name="unit1"
-          component={Vivresain}
+          component={Lycée}
           options={{
             animationEnabled: false,
+            headerShown: false,
           }}
-          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="unit2"
-          component={six}
+          component={Vivresain}
           options={{
             animationEnabled: false,
+            headerShown: false,
           }}
-          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="VideosUnits"
-          component={notebook}
+          component={Reader}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="unit1V"
-          component={GradeHome}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="unit2V"
-          component={GradeHome}
+          name="LogOut"
+          component={SignOut}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

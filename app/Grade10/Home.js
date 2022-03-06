@@ -36,10 +36,24 @@ export default function GradeHome() {
           onPress={() => navigation.navigate("Units")}
         />
       </View>
-      <View style={{ marginLeft: 10 }}>
+      <View
+        style={{
+          marginLeft: 10,
+          flexDirection: "row",
+          alignItems: "center",
+          marginHorizontal: "3%",
+          justifyContent: "space-between",
+        }}
+      >
         <CustomText
           text={"développé par : \nTawfiq Bhyry\nYousef Fathy"}
           color={Colors.secondary}
+          style="bold medium"
+        />
+        <AppBtn
+          text={"Log Out"}
+          style={{ width: "40%" }}
+          onPress={() => navigation.navigate("LogOut")}
         />
       </View>
     </SafeAreaView>

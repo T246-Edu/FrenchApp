@@ -8,7 +8,7 @@ const PdfReader = ({ url: uri }) => (
 export default function Reader() {
   return (
     <View style={styles.container}>
-      <PdfReader url="https://drive.google.com/file/d/1SP9iFOcomn8XJ9XLW2KAT7BVoLJh6MyY/view?usp=sharing" />
+      <PdfReader url="https://drive.google.com/file/d/1HAm4IDMIYRemUr2kCWGLOilqu3-Gw3Eb/view?usp=sharing" />
     </View>
   );
 }

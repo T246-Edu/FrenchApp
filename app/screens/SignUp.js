@@ -14,7 +14,7 @@ import Colors from "../config/Colors";
 
 function Register() {
   const navigation = useNavigation();
-  const [messege, setmessege] = useState("Register!");
+  const [messege, setmessege] = useState("S'inscrire!");
   async function register(mail, password, grade) {
     const base = new Airtable({ apiKey: "keygrEQRcmrlb0BxL" }).base(
       "appHtBfPVkbl5eWGK"
@@ -26,11 +26,11 @@ function Register() {
       })
       .eachPage(async (records, fetch) => {
         if (mail.includes("@") == false || mail.includes(".") == false) {
-          setmessege("That email address is invalid!");
+          setmessege("Cette adresse email est invalide !");
         } else if (records.length !== 0) {
-          setmessege("That email address is already in use!");
+          setmessege("Cette adresse email est déjà utilisée!");
         } else if (password.length < 6) {
-          setmessege("That password must be at least 6 chars");
+          setmessege("Ce mot de passe doit comporter au moins 6 caractères");
         } else {
           base("users").create(
             [
@@ -50,7 +50,7 @@ function Register() {
           );
           await AsyncStorage.setItem("@grade", grade);
           await AsyncStorage.setItem("@user", "userData");
-          setmessege("Success");
+          setmessege("Succès");
         }
       });
   }
@@ -59,7 +59,7 @@ function Register() {
       style={{ alignItems: "center", justifyContent: "center", flex: 1 }}
     >
       <CustomText
-        text="Sign Up"
+        text="S'inscrire"
         style="bold head"
         otherStyle={{ marginTop: 100 }}
       />
@@ -72,16 +72,26 @@ function Register() {
           grade: 10,
         }}
         validationSchema={yup.object().shape({
-          email: yup.string().email().required(),
-          password: yup.string().required().min(6).max(16),
+          email: yup
+            .string("doit être une chaîne")
+            .email("doit être un email valide")
+            .required("Ce champ est requis"),
+          password: yup
+            .string("doit être une chaîne")
+            .required("Ce champ est requis")
+            .min(6, "le minimum est de 6 caractères")
+            .max(16, "le maximum est de 16 caractères"),
           conirmPass: yup
-            .string()
-            .required()
-            .oneOf([yup.ref("password"), null], "passwords must match"),
+            .string("doit être une chaîne")
+            .required("Ce champ est requis")
+            .oneOf(
+              [yup.ref("password"), null],
+              "les mots de passe doivent correspondre"
+            ),
           grade: yup
-            .number()
-            .required()
-            .oneOf([10, 11, 12], "grade must be 10, 11, or 12"),
+            .number("doit être un nombre")
+            .required("Ce champ est requis")
+            .oneOf([10, 11, 12], "la note doit être 10, 11 ou 12"),
         })}
         onSubmit={(values) =>
           register(values.email, values.password, values.grade)
@@ -138,12 +148,12 @@ function Register() {
               <CustomText text={errors.conirmPass} otherStyle={styles.error} />
             )}
             <AppBtn
-              text={"Register"}
+              text={"S'inscrire"}
               onPress={handleSubmit}
               style={{ marginTop: 10 }}
             />
             <AppBtn
-              text={"Return Login"}
+              text={"Revenir à la connexion"}
               style={{
                 backgroundColor: Colors.primary,
                 width: "50%",

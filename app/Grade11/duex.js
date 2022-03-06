@@ -2,7 +2,7 @@ import { ScrollView } from "react-native";
 import YT from "../components/YtVideo";
 import Colors from "../config/Colors";
 import data from "./data";
-export default function Vivresain() {
+export default function Lycée() {
   const items = data().duex;
   return (
     <ScrollView style={{ backgroundColor: Colors.primary }}>

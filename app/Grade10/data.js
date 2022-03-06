@@ -1,9 +1,9 @@
 export default function data() {
   return {
     une: {
-      "Découvrir la langue française ": "vpCnYrbqscg",
+      "Découvrir la langue française": "vpCnYrbqscg",
       "Se presenter & 3- Présenter quelqu’un": "h04CbElc63k",
-      "Se presenter & 3- Présenter quelqu’un": "lhmAqIRMS2o",
+      "": "lhmAqIRMS2o",
       "Décrire un objet": "kv7ZSwD-Ub4",
       "Exprimer ses goûts et ses sentiments": "QdIjBVbsBG0",
       "Le présent de l’indicatif": "rW8ctQCbzj8",

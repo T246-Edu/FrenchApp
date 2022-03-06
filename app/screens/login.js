@@ -10,13 +10,13 @@ import { useNavigation } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function Login() {
-  const [messege, setmessege] = useState("Login!");
+  const [messege, setmessege] = useState("s'identifier!");
   const [mail, setMail] = useState("");
   const navigation = useNavigation();
   const [password, setPassword] = useState("");
   function login(mail, password) {
     if (mail == "" || password == "") {
-      setmessege("Email and Password cannot be empty");
+      setmessege("L'e-mail et le mot de passe ne peuvent pas être vides");
     } else {
       const base = new Airtable({ apiKey: "keygrEQRcmrlb0BxL" }).base(
         "appHtBfPVkbl5eWGK"
@@ -28,15 +28,15 @@ function Login() {
         })
         .eachPage((records, fetch) => {
           if (records.length == 0) {
-            setmessege("User Doesn't exist");
+            setmessege("L'utilisateur n'existe pas");
           } else {
             records.map(async (user) => {
               if (user.fields.Password == password) {
                 await AsyncStorage.setItem("@grade", user.fields.Grade);
                 await AsyncStorage.setItem("@user", "userData");
-                setmessege("Success. Restart the app");
+                setmessege("Succès. Redémarrer l'application");
               } else if (user.fields.Password != password) {
-                setmessege("Failed. wrong pass");
+                setmessege("Échoué. Mot de passe incorrect");
               }
               fetch();
             });
@@ -47,7 +47,7 @@ function Login() {
   return (
     <AppScreen style={{ alignItems: "center", justifyContent: "center" }}>
       <CustomText
-        text={"Welcome"}
+        text={"Salut!"}
         style="bold head"
         otherStyle={{ marginTop: 100 }}
       />
@@ -59,12 +59,12 @@ function Login() {
       />
       <TextField data="password" onChangeText={(text) => setPassword(text)} />
       <AppBtn
-        text={"Login"}
+        text={"connexion"}
         style={{ marginTop: 130, marginBottom: 20 }}
         onPress={() => login(mail, password)}
       />
       <AppBtn
-        text={"sign up?"}
+        text={"S'inscrire ?"}
         style={{ backgroundColor: Colors.primary }}
         onPress={() => navigation.navigate("Sign Up")}
       ></AppBtn>

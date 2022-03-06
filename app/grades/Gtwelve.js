@@ -6,6 +6,8 @@ import GradeHome from "../Grade12/Home";
 import Units from "../Grade12/units";
 import notebook from "../Grade12/notebook";
 import six from "../Grade12/six";
+import Materials from "../Grade12/Materials";
+import SignOut from "../SignOut/signOut";
 
 export default function Gt() {
   const Stack = createNativeStackNavigator();
@@ -27,16 +29,16 @@ export default function Gt() {
           component={Vivresain}
           options={{
             animationEnabled: false,
+            headerShown: false,
           }}
-          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="unit2"
           component={six}
           options={{
             animationEnabled: false,
+            headerShown: false,
           }}
-          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="VideosUnits"
@@ -51,6 +53,16 @@ export default function Gt() {
         <Stack.Screen
           name="unit2V"
           component={GradeHome}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Materials"
+          component={Materials}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LogOut"
+          component={SignOut}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

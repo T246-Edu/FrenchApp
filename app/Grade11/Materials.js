@@ -11,7 +11,7 @@ export default function Materials() {
         style={styles.btn}
         onPress={() => {
           navigation.navigate("VideosUnits", {
-            url: "https://drive.google.com/file/d/1vizMbfGVSlHYF7BDcr0bpabkQ6WbilXs/view?usp=sharing",
+            url: "https://drive.google.com/file/d/1vzeRHoJL03ZU_qeaUtPuWg0ok4TT1Dzy/view?usp=sharing",
           });
         }}
       />
@@ -19,7 +19,7 @@ export default function Materials() {
         text={"second semestre"}
         onPress={() =>
           navigation.navigate("VideosUnits", {
-            url: "https://drive.google.com/file/d/1r_ZEtrm2bsPagyaZmjJxAQMQFd7E8Ria/view?usp=sharing",
+            url: "https://drive.google.com/file/d/1rtRNIDchQD4r5F74PKeetfcao2R6s8lo/view?usp=sharing",
           })
         }
       />
